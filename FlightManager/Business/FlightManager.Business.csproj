@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\FlightManager.Entities.csproj" />
+    <ProjectReference Include="..\Repository\FlightManager.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

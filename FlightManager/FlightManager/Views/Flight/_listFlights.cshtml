@@ -1,0 +1,53 @@
+﻿@using  FlightManager.UI.Models
+@model FlightModelList
+@{
+    ViewData["Title"] = "_listOfFlights";
+}
+
+<h1>List of flights</h1>
+<hr />
+<div>
+    <div class="row">
+        <div class="col">
+            Name
+        </div>
+        <div class="col">
+            Airport Departure
+        </div>
+        <div class="col">
+            AirPort Arrival
+        </div>
+        <div class="col">
+            Distance
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <hr />
+    @foreach (var item in Model.Flights)
+    {
+        <div class="row">
+            <div class="col">
+                @item.Name
+            </div>
+            <div class="col">
+                @item.AirPortDeparture
+            </div>
+            <div class="col">
+                @item.AirPortArrival
+            </div>
+
+            <div class="col">
+                @item.Distance
+            </div>
+
+            <div class="col">
+                <input type="button" value="Edit" class="btn btn-primary item-action-edit" data-Id="@item.Id">
+                <input type="button" value="Delete" class="btn btn-danger item-action-delete" data-Id="@item.Id">
+            </div>
+        </div>
+        <hr />
+    }
+</div>
+
+

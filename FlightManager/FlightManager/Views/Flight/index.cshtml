@@ -1,0 +1,60 @@
+﻿@using FlightManager.UI.Models
+@model FlightModel
+@{
+    ViewData["Title"] = "Flight";
+}
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="~/js/Views/Flight/index.js" asp-append-version="true"></script>
+<div id="saveSucsses" class="alert alert-info  fade show" role="alert">
+    Flight successfully saved.
+</div>
+<div id="saveFailed" class="alert alert-danger fade show" role="alert">
+    Failed to save fligh.
+</div>
+<h1>Flight</h1>
+
+<form id="flightForm" role="form" asp-controller="Flight" asp-action="Save">
+    @{
+        var selectedAirports = Model.DepartureAirports
+
+                                    .Select(e => new SelectListItem
+                                    {
+                                        Value = e.Id.ToString(),
+                                        Text = e.Code
+                                    }).ToList();
+    }
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-row">
+
+        @Html.HiddenFor(m => m.Id, new { id = "hdIdFlight" })
+        <div class="form-group col-md-6">
+            <label for="selectedDepartureAirportid">Name</label>
+            @Html.TextBoxFor(m => m.Name, new { id = "txtName", @class = "form-control", required = "required" })
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="selectedDepartureAirportid">Departure airport</label>
+            @Html.DropDownListFor(m => m.SelectedDepartureAirportid, selectedAirports, new { id = "ddlDepartureAirportid", @class = "form-control" })
+
+        </div>
+        <div class="form-group col-md-6">
+            <label for="selectedArrivalAirportId">Arrival airport</label>
+            @Html.DropDownListFor(m => m.SelectedArrivalAirportId, selectedAirports, new { id = "ddlArrivalAirportId", @class = "form-control" })
+        </div>
+    </div>
+
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="lblDistnace">Distance :</label>
+            <label id="lblDistnace">0</label>&nbsp;km
+        </div>
+
+    </div>
+
+    <input type="button" class="btn btn-primary" value="Save new flight" id="submitFlight">
+    <input type="button" class="btn btn-info" value="Update" id="updateFlight">
+
+    <div id="FlightsListe" class="include-partial" data-grid data-grid-url="Flight/_listOfFlights"></div>
+
+</form>

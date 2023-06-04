@@ -1,0 +1,3 @@
+D:\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp2.2\FlightManager.csproj.CoreCompileInputs.cache
+D:\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp2.2\FlightManager.AssemblyInfoInputs.cache
+D:\FlightManager\FlightManager\FlightManager\obj\Debug\netcoreapp2.2\FlightManager.AssemblyInfo.cs
